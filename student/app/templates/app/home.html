@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background: linear-gradient(to bottom, #cc66ff 0%, #ccccff 100%)";><center><h2>
+    <div class="container">
+  <form method="POST">
+    {% csrf_token %}
+    <fieldset class="form-group">
+      <legend class="border-bottom mb-4">Student database form</legend>
+      <table>
+        {{form.as_table}}<br><br>
+      </table><br><br><br>
+    </fieldset><br><br>
+    <div class="form-group"><h1>
+      <button href="" class="btn btn-outline-info" type="submit">
+      <a href="{% url 'success'%}">
+        Submit
+      </a>
+      </button>
+      
+      </div></h1>
+      </center>
+      </h2>
+  </form>
+  {% if messages %}
+    {% for message in messages %}
+      <p {% if message.tags %} class="alert alert-
+      {{message.tags}} my-5" {% endif %}>{{message}}</p>
+    {% endfor %}
+  {% endif %}
+</body>
+</html>
